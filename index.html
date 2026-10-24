@@ -12,6 +12,7 @@
   --akzent: #b91c1c; --akzent-hell: #fdecec; --on-akzent: #ffffff;
   --kunde: #e8f0fb; --kunde-rand: #3b6db3; --kon: #fdecec; --kon-rand: #b91c1c; --hy: #eef6ea; --hy-rand: #3d7a3a;
   --werk: #fff4e0; --werk-rand: #b26a00; --pfeil: #566170; --ok: #2f7d4f; --fokus: #1d4ed8;
+  --lief: #f1ebfb; --lief-rand: #6d4bb3; --du: #e4f5f4; --du-rand: #13797a; --andere: #eef0f3; --andere-rand: #66707c;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -19,6 +20,7 @@
     --akzent: #f87171; --akzent-hell: #3a1c1c; --on-akzent: #2a0707;
     --kunde: #1b2737; --kunde-rand: #7fa9e6; --kon: #3a1c1c; --kon-rand: #f87171; --hy: #1d2c1c; --hy-rand: #8fcf8a;
     --werk: #33270f; --werk-rand: #f0b45a; --pfeil: #a3acb7; --ok: #6cc893; --fokus: #93c5fd;
+    --lief: #2a2140; --lief-rand: #b79cf0; --du: #12302f; --du-rand: #5fd0cc; --andere: #272c33; --andere-rand: #9aa3ad;
   }
 }
 :root[data-theme="dark"] {
@@ -26,6 +28,7 @@
   --akzent: #f87171; --akzent-hell: #3a1c1c; --on-akzent: #2a0707;
   --kunde: #1b2737; --kunde-rand: #7fa9e6; --kon: #3a1c1c; --kon-rand: #f87171; --hy: #1d2c1c; --hy-rand: #8fcf8a;
   --werk: #33270f; --werk-rand: #f0b45a; --pfeil: #a3acb7; --ok: #6cc893; --fokus: #93c5fd;
+  --lief: #2a2140; --lief-rand: #b79cf0; --du: #12302f; --du-rand: #5fd0cc; --andere: #272c33; --andere-rand: #9aa3ad;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, "Segoe UI", sans-serif; }
@@ -34,7 +37,7 @@ a:focus-visible, summary:focus-visible { outline: 3px solid var(--fokus); outlin
 header { background: var(--karte); border-bottom: 3px solid var(--akzent); padding: 10px 16px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; }
 header h1 { font-size: 20px; margin: 0; } header h1 b { color: var(--akzent); }
 header .stand { color: var(--leise); font-size: 14px; margin-left: auto; }
-.rahmen { display: grid; grid-template-columns: 220px 1fr; gap: 24px; max-width: 1160px; margin: 0 auto; padding: 16px; }
+.rahmen { display: grid; grid-template-columns: 220px 1fr; gap: 24px; max-width: 1320px; margin: 0 auto; padding: 16px; }
 nav.inhalt { position: sticky; top: 12px; align-self: start; background: var(--karte); border: 1px solid var(--linie); border-radius: 10px; padding: 12px; font-size: 14px; }
 nav.inhalt ol { margin: 0; padding-left: 18px; } nav.inhalt li { margin: 4px 0; }
 main { min-width: 0; }
@@ -49,11 +52,16 @@ th, td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--lini
 thead th { position: sticky; top: 0; background: var(--karte); }
 .tabelle { max-height: 520px; overflow: auto; border: 1px solid var(--linie); border-radius: 8px; }
 .ablauf { overflow-x: auto; border: 1px solid var(--linie); border-radius: 8px; background: var(--karte); }
-.ablauf svg { display: block; min-width: 900px; width: 100%; height: auto; }
+.ablauf svg { display: block; width: 100%; height: auto; margin: 0 auto; }
 .legende { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 14px; margin-top: 8px; }
 .legende span::before { content: ""; display: inline-block; width: 14px; height: 14px; border-radius: 3px; margin-right: 6px; vertical-align: -2px; border: 2px solid; }
-.legende .k::before { background: var(--kunde); border-color: var(--kunde-rand); } .legende .s::before { background: var(--kon); border-color: var(--kon-rand); }
-.legende .h::before { background: var(--hy); border-color: var(--hy-rand); } .legende .w::before { background: var(--werk); border-color: var(--werk-rand); }
+.legende .b-kunde::before { background: var(--kunde); border-color: var(--kunde-rand); } .legende .b-kon::before { background: var(--kon); border-color: var(--kon-rand); }
+.legende .b-hy::before { background: var(--hy); border-color: var(--hy-rand); } .legende .b-werk::before { background: var(--werk); border-color: var(--werk-rand); }
+.legende .b-lief::before { background: var(--lief); border-color: var(--lief-rand); } .legende .b-du::before { background: var(--du); border-color: var(--du-rand); }
+.legende .b-andere::before { background: var(--andere); border-color: var(--andere-rand); }
+.legende .l-bedarf::before, .legende .l-aufbau::before { background: transparent; border-color: var(--pfeil); border-style: dashed; }
+.legende .l-aufbau::before { border-style: dotted; }
+.ablauf + .legende { margin-bottom: 14px; }
 code { background: var(--bg); border: 1px solid var(--linie); border-radius: 4px; padding: 0 4px; font-size: 14px; overflow-wrap: anywhere; }
 ul.zeit { list-style: none; padding: 0; margin: 0; } ul.zeit li { padding: 6px 0; border-bottom: 1px solid var(--linie); }
 ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-width: 92px; }
@@ -68,6 +76,7 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
   <li><a href="#tun">Was du jetzt tun musst</a></li>
   <li><a href="#stand">Aktueller Stand</a></li>
   <li><a href="#ablauf">Ablauf eines Auftrags</a></li>
+  <li><a href="#werkstatt">Abläufe in der Werkstatt</a></li>
   <li><a href="#bereiche">Die Bereiche</a></li>
   <li><a href="#stand-projekt">Stand eines Projekts</a></li>
   <li><a href="#skizze">Skizzen und Freigabe</a></li>
@@ -92,19 +101,19 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 
 <section aria-labelledby="stand"><h2 id="stand">Aktueller Stand</h2>
 <p class="leise">Die letzten Änderungen am Programm, neueste oben. Diese Seite wird bei jedem Update neu erzeugt.</p>
-<ul class="zeit"><li><time datetime="2026-10-25">25.10.2026</time> Update 2026.10.25.0117: dein eigener Claude-Zugang lässt sich im Konstrukteur eintragen, Claude Code richtet den Konstrukteur mit dir ein (setup\Claude_einrichten.cmd), Liste der Zugänge für den Umzug ausdrucken, Handbuch mit Ablauf eines Auftrags</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1026 (git 5f7c87d) in Nedims Nextcloud Updates-Ordner ausgeliefert. Enthalten: Projektseite neu (Steckbrief oben), Datei-Ansicht (DXF/STEP/PDF), Rückgängig Strg+Z, Rechnungsleser mit Texterkennung, Selbsttest UTF-8. Deploy-Prüfer PASS 680/680. Hinweis: Ankunft bei Nedim hängt an der Nextcloud-Desktop-App.</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1157 veröffentlicht: Eingang zeigt sofort alle E-Mails, &#x27;Zu klären&#x27; (Scans/Rechnungen) als Unterreiter; Mails nach Art pastellfarben (Schalter); Mail-Einordnung: &#x27;Anfrage&#x27;/&#x27;Dringende Anfrage&#x27; kein Nachtrag mehr, &#x27;bitte N Stück anbieten&#x27; keine Bestellung; Anfrage-Archive (7z/ZIP) vollständig mit Blechdicke aus STEP; Anhänge (STEP) im Viewer; Postfächer als Tabelle; erledigte Projekte ausblendbar; Normteile als Karten. Kommt erst an, wenn Nedims Nextcloud-Desktop-App läuft.</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1327 veröffentlicht: Kontaktdaten einheitlich (Telefon +49 …-Durchwahl, E-Mail, Anschrift; Altwerte gesichert, rücksetzbar); ältere Mails über Hyreka-Vorgänge Projekten zuordnen (Projekte › Ältere Projekte aus Hyreka, erst Trockenlauf, Vorschläge zum Bestätigen); Wareneingang → Lager (Lager › Wareneingang einbuchen: Werkstoff, Form, Menge bestätigen; Altbestand einmalig als Zugang). Braucht beim Einspielen Internet (neues Paket phonenumbers).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1420 veröffentlicht (ersetzt 1327): Hyreka-Zuordnung strenger – Nummer mit abweichendem Kunden nur noch als Vorschlag; Automatik nur für neu geschriebene Mails (1327 hätte beim ersten Abruf den ganzen Altbestand ungefragt zugeordnet, ~350 Projekte). Ältere Mails nur über Projekte › Ältere Projekte aus Hyreka (Trockenlauf, dann Jetzt zuordnen).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1457 veröffentlicht: Adressdaten aus Mails werden automatisch übernommen, wenn mindestens 3 Firmendaten (Straße, PLZ, Ort, Telefon, Web, USt-IdNr., Inhaber) übereinstimmen; markiert mit gelb-brauner Wellenlinie, bis Nedim die Adresse speichert. Von Hand Eingetragenes, andere Werke, USt-IdNr./Inhaber und Telefon-Bruchstücke werden nie still überschrieben (bleiben Vorschlag).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1804: Projektstand aus Hyreka und Mails (Bestellung = Auftrag, sonst &#x27;kein Angebot gefunden&#x27;), Zeichnung mit 3D-Bild und Biegeradius, Teilflansch von/bis, Ausklinkungen bemaßt</li><li><time datetime="2026-10-23">23.10.2026</time> Neue Version 2026.10.23.1953: Angebote zeigen je Bauteil die Arbeitsschritte mit Netto- und Bruttopreis, Optionen wie Entgraten kann der Kunde ankreuzen, Projekte und KI-Stand stehen auf einer Seite, und Bestelllisten deiner Kunden als Excel lassen sich einlesen. Kommt beim nächsten Start automatisch.</li><li><time datetime="2026-10-22">22.10.2026</time> Der Konstrukteur läuft jetzt bei dir. Als Nächstes richtest du mit Claude deine Werkstatt ein und vergleichst die Preise an zwei, drei alten Aufträgen; die Anleitung dazu steht in Clemens&#x27; Mail.</li><li><time datetime="2026-10-22">22.10.2026</time> Der Konstrukteur gibt der Datenbank beim Start jetzt 2 Minuten statt 10 Sekunden; die Startfehlermeldung zeigt außerdem das Datenbank-Protokoll. Ist im Update vom 22.10. enthalten und wird beim nächsten Start eingespielt.</li><li><time datetime="2026-10-20">20.10.2026</time> 19.10. Antwort auf Mail vom 18.10. (Konstrukteur/Hyreka): kein Text, nur Screenshot von Nedims claude.ai-Chat &#x27;Claude Code auf Windows installieren&#x27; mit Windows-Meldung &#x27;Laden des Moduls Program Files\Bonjour\mdnsNSP.dll in die lokale Sicherheitsautoritaet blockiert&#x27;. Die drei erbetenen Angaben (Hyreka-Version FREE/PLUS, Export Kunden/Artikel/Auftrag, Ordnerliste HyrekaDB\Standard) fehlen weiter. Nedim will offenbar Claude Code lokal installieren.</li><li><time datetime="2026-10-19">19.10.2026</time> Kalkulation: Staffelpreise wie in deiner Excel – Abkanten, Schweißen, Bohren, Versäubern und Sägen werden mit der Stückzahl günstiger (1,00 bis 0,64 bei 500 Stück), Rüsten zählt einmal je Teil und Auftrag. Schalter und Faktoren unter Werkstatt › Kalkulation › Staffel. Bestehende Angebote bleiben unverändert. Außerdem lassen sich die Crawler einzeln starten, ihre Funde siehst und übernimmst du direkt.</li><li><time datetime="2026-10-19">19.10.2026</time> Angebot: Staffelpreise für angefragte Mengen, Bild je Teil, übliche Absicherungstexte (abwählbar), Lieferbedingung ab Werk (EXW) und Lieferanschrift. Beim Kunden lassen sich jetzt Lieferadressen speichern. Alle Listen haben einen Autofilter wie in Excel. Neu als Arbeitsgänge aus deiner Excel: Bohren, Versäubern, Sägen, Entgraten, Gewinde, Senken, Schleifen – gerechnet genau wie deine Kalkulationsvorlage.</li><li><time datetime="2026-10-19">19.10.2026</time> Pflichten überwacht der Konstrukteur jetzt selbst: Er weiß, wann eine Pflicht wieder fällig ist, erkennt Nachweise in deinen Mails, Briefen und Rechnungen (z. B. Freistellungsbescheinigung, Versicherungsschein, DGUV-V3-Prüfbericht) und legt dir einmal pro Woche eine Erinnerung als Entwurf ins Postfach. Jede Durchführung wird mit Datum, wer und Nachweis dokumentiert – als PDF-Nachweisliste für BG oder Betriebsprüfung. Außerdem: Tabellen mit festem Kopf und Filter, Ort des Firmenwissens frei wählbar.</li><li><time datetime="2026-10-18">18.10.2026</time> Fertigbarkeitsprüfung geschärft: abgetrennte Laschen/Haken werden rot, Toleranz 0,05 mm (keine Fehlalarme mehr bei genau eingehaltenem Maß), Fehlerkatalog mit Ursache und Änderungsvorschlag je Verstoß. Update 2026.10.18.0217.</li></ul>
+<ul class="zeit"><li><time datetime="2026-10-25">25.10.2026</time> Update 2026.10.25.0117: dein eigener Claude-Zugang lässt sich im Konstrukteur eintragen, Claude Code richtet den Konstrukteur mit dir ein (setup\Claude_einrichten.cmd), Liste der Zugänge für den Umzug ausdrucken, Handbuch mit Ablauf eines Auftrags</li><li><time datetime="2026-10-25">25.10.2026</time> Im Handbuch sind jetzt die Abläufe genauer beschrieben: Rückfrage an den Kunden, was mit jeder Mailart passiert, Werkstattauftrag mit Zeiterfassung, Material vom Bedarf bis zur Rechnung, Lager, Inventur und Arbeitssicherheit, jeweils mit Diagramm.</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1026 (git 5f7c87d) in Nedims Nextcloud Updates-Ordner ausgeliefert. Enthalten: Projektseite neu (Steckbrief oben), Datei-Ansicht (DXF/STEP/PDF), Rückgängig Strg+Z, Rechnungsleser mit Texterkennung, Selbsttest UTF-8. Deploy-Prüfer PASS 680/680. Hinweis: Ankunft bei Nedim hängt an der Nextcloud-Desktop-App.</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1157 veröffentlicht: Eingang zeigt sofort alle E-Mails, &#x27;Zu klären&#x27; (Scans/Rechnungen) als Unterreiter; Mails nach Art pastellfarben (Schalter); Mail-Einordnung: &#x27;Anfrage&#x27;/&#x27;Dringende Anfrage&#x27; kein Nachtrag mehr, &#x27;bitte N Stück anbieten&#x27; keine Bestellung; Anfrage-Archive (7z/ZIP) vollständig mit Blechdicke aus STEP; Anhänge (STEP) im Viewer; Postfächer als Tabelle; erledigte Projekte ausblendbar; Normteile als Karten. Kommt erst an, wenn Nedims Nextcloud-Desktop-App läuft.</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1327 veröffentlicht: Kontaktdaten einheitlich (Telefon +49 …-Durchwahl, E-Mail, Anschrift; Altwerte gesichert, rücksetzbar); ältere Mails über Hyreka-Vorgänge Projekten zuordnen (Projekte › Ältere Projekte aus Hyreka, erst Trockenlauf, Vorschläge zum Bestätigen); Wareneingang → Lager (Lager › Wareneingang einbuchen: Werkstoff, Form, Menge bestätigen; Altbestand einmalig als Zugang). Braucht beim Einspielen Internet (neues Paket phonenumbers).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1420 veröffentlicht (ersetzt 1327): Hyreka-Zuordnung strenger – Nummer mit abweichendem Kunden nur noch als Vorschlag; Automatik nur für neu geschriebene Mails (1327 hätte beim ersten Abruf den ganzen Altbestand ungefragt zugeordnet, ~350 Projekte). Ältere Mails nur über Projekte › Ältere Projekte aus Hyreka (Trockenlauf, dann Jetzt zuordnen).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1457 veröffentlicht: Adressdaten aus Mails werden automatisch übernommen, wenn mindestens 3 Firmendaten (Straße, PLZ, Ort, Telefon, Web, USt-IdNr., Inhaber) übereinstimmen; markiert mit gelb-brauner Wellenlinie, bis Nedim die Adresse speichert. Von Hand Eingetragenes, andere Werke, USt-IdNr./Inhaber und Telefon-Bruchstücke werden nie still überschrieben (bleiben Vorschlag).</li><li><time datetime="2026-10-24">24.10.2026</time> Update 2026.10.24.1804: Projektstand aus Hyreka und Mails (Bestellung = Auftrag, sonst &#x27;kein Angebot gefunden&#x27;), Zeichnung mit 3D-Bild und Biegeradius, Teilflansch von/bis, Ausklinkungen bemaßt</li><li><time datetime="2026-10-23">23.10.2026</time> Neue Version 2026.10.23.1953: Angebote zeigen je Bauteil die Arbeitsschritte mit Netto- und Bruttopreis, Optionen wie Entgraten kann der Kunde ankreuzen, Projekte und KI-Stand stehen auf einer Seite, und Bestelllisten deiner Kunden als Excel lassen sich einlesen. Kommt beim nächsten Start automatisch.</li><li><time datetime="2026-10-22">22.10.2026</time> Der Konstrukteur läuft jetzt bei dir. Als Nächstes richtest du mit Claude deine Werkstatt ein und vergleichst die Preise an zwei, drei alten Aufträgen; die Anleitung dazu steht in Clemens&#x27; Mail.</li><li><time datetime="2026-10-22">22.10.2026</time> Der Konstrukteur gibt der Datenbank beim Start jetzt 2 Minuten statt 10 Sekunden; die Startfehlermeldung zeigt außerdem das Datenbank-Protokoll. Ist im Update vom 22.10. enthalten und wird beim nächsten Start eingespielt.</li><li><time datetime="2026-10-20">20.10.2026</time> 19.10. Antwort auf Mail vom 18.10. (Konstrukteur/Hyreka): kein Text, nur Screenshot von Nedims claude.ai-Chat &#x27;Claude Code auf Windows installieren&#x27; mit Windows-Meldung &#x27;Laden des Moduls Program Files\Bonjour\mdnsNSP.dll in die lokale Sicherheitsautoritaet blockiert&#x27;. Die drei erbetenen Angaben (Hyreka-Version FREE/PLUS, Export Kunden/Artikel/Auftrag, Ordnerliste HyrekaDB\Standard) fehlen weiter. Nedim will offenbar Claude Code lokal installieren.</li><li><time datetime="2026-10-19">19.10.2026</time> Kalkulation: Staffelpreise wie in deiner Excel – Abkanten, Schweißen, Bohren, Versäubern und Sägen werden mit der Stückzahl günstiger (1,00 bis 0,64 bei 500 Stück), Rüsten zählt einmal je Teil und Auftrag. Schalter und Faktoren unter Werkstatt › Kalkulation › Staffel. Bestehende Angebote bleiben unverändert. Außerdem lassen sich die Crawler einzeln starten, ihre Funde siehst und übernimmst du direkt.</li><li><time datetime="2026-10-19">19.10.2026</time> Angebot: Staffelpreise für angefragte Mengen, Bild je Teil, übliche Absicherungstexte (abwählbar), Lieferbedingung ab Werk (EXW) und Lieferanschrift. Beim Kunden lassen sich jetzt Lieferadressen speichern. Alle Listen haben einen Autofilter wie in Excel. Neu als Arbeitsgänge aus deiner Excel: Bohren, Versäubern, Sägen, Entgraten, Gewinde, Senken, Schleifen – gerechnet genau wie deine Kalkulationsvorlage.</li><li><time datetime="2026-10-19">19.10.2026</time> Pflichten überwacht der Konstrukteur jetzt selbst: Er weiß, wann eine Pflicht wieder fällig ist, erkennt Nachweise in deinen Mails, Briefen und Rechnungen (z. B. Freistellungsbescheinigung, Versicherungsschein, DGUV-V3-Prüfbericht) und legt dir einmal pro Woche eine Erinnerung als Entwurf ins Postfach. Jede Durchführung wird mit Datum, wer und Nachweis dokumentiert – als PDF-Nachweisliste für BG oder Betriebsprüfung. Außerdem: Tabellen mit festem Kopf und Filter, Ort des Firmenwissens frei wählbar.</li></ul>
 </section>
 
 <section aria-labelledby="ablauf"><h2 id="ablauf">Ablauf eines Auftrags</h2>
-<p>So läuft ein Auftrag durch das System, von der Anfrage bis zur bezahlten Rechnung. Jede Spalte zeigt, wer oder was den Schritt macht. Der Konstrukteur erstellt Angebot, Lieferschein und Rechnung, Hyreka bekommt alle Angaben dazu. Gestrichelt: nur bei Bedarf. Gepunktet: noch im Aufbau.</p>
-<div class="ablauf" role="img" aria-label="Ablaufdiagramm eines Auftrags von der Anfrage bis zur Rechnung"><svg viewBox="0 0 1120 912" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif">
-<defs><marker id="spitze" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<p>So läuft ein Auftrag durch das System, von der Anfrage bis zur bezahlten Rechnung. Jede Spalte zeigt, wer oder was den Schritt macht. Der Konstrukteur erstellt Angebot, Lieferschein und Rechnung, Hyreka bekommt alle Angaben dazu. Was nach dem Auftrag in der Werkstatt passiert, steht genauer unter <a href="#werkstatt">Abläufe in der Werkstatt</a>.</p>
+<div class="ablauf" role="img" aria-label="Ablaufdiagramm eines Auftrags von der Anfrage über Rückfrage und Freigabe bis zur Rechnung"><svg viewBox="0 0 1120 1044" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:840px;max-width:1232px">
+<defs><marker id="spitze-ablauf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
 <text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Kunde</text>
-<line x1="280" y1="0" x2="280" y2="912" stroke="var(--linie)" stroke-width="1"/>
+<line x1="280" y1="0" x2="280" y2="1044" stroke="var(--linie)" stroke-width="1"/>
 <text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
-<line x1="560" y1="0" x2="560" y2="912" stroke="var(--linie)" stroke-width="1"/>
+<line x1="560" y1="0" x2="560" y2="1044" stroke="var(--linie)" stroke-width="1"/>
 <text x="700.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Hyreka</text>
-<line x1="840" y1="0" x2="840" y2="912" stroke="var(--linie)" stroke-width="1"/>
+<line x1="840" y1="0" x2="840" y2="1044" stroke="var(--linie)" stroke-width="1"/>
 <text x="980.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Werkstatt</text>
 <line x1="0" y1="44" x2="1120" y2="44" stroke="var(--linie)" stroke-width="1"/>
 <rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
@@ -115,73 +124,424 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 <text x="302" y="157" font-size="12" fill="var(--leise)">Art, Firma, Adresse – automatisch</text>
 <rect x="292" y="184" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
 <text x="302" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Projekt anlegen</text>
-<text x="302" y="223" font-size="12" fill="var(--leise)">Nummer wie Hyreka · Stand: Anfrage</text>
+<text x="302" y="223" font-size="12" fill="var(--leise)">Auftragsnr. aus Hyreka · Stand: Anfrage</text>
 <rect x="292" y="250" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
 <text x="302" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Prüfen / konstruieren</text>
 <text x="302" y="289" font-size="12" fill="var(--leise)">Ampel, Zeichnung, 3D, Abwicklung</text>
-<rect x="12" y="316" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2" stroke-dasharray="6 4"/>
-<text x="22" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Freigabe der Konstruktion</text>
-<text x="22" y="355" font-size="12" fill="var(--leise)">nur bei Skizzen: 3D-Link, Maßprüfung</text>
-<rect x="292" y="382" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
-<text x="302" y="403" font-size="14" font-weight="700" fill="var(--text)">6. Kalkulation</text>
-<text x="302" y="421" font-size="12" fill="var(--leise)">Laser, Kanten, Material, Staffel</text>
-<rect x="292" y="448" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
-<text x="302" y="469" font-size="14" font-weight="700" fill="var(--text)">7. Angebot erstellen</text>
-<text x="302" y="487" font-size="12" fill="var(--leise)">PDF an Kunden · nachfassen nach 7 Tagen</text>
-<rect x="572" y="448" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="582" y="469" font-size="14" font-weight="700" fill="var(--text)">→ Angebot übernehmen</text>
-<text x="582" y="487" font-size="12" fill="var(--leise)">Kunde, Artikel, Stückliste, Preise</text>
-<line x1="548" y1="473.0" x2="571" y2="473.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze)"/>
-<rect x="12" y="514" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
-<text x="22" y="535" font-size="14" font-weight="700" fill="var(--text)">8. Bestellung</text>
-<text x="22" y="553" font-size="12" fill="var(--leise)">Mail oder Bestellnummer</text>
+<rect x="292" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="302" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Rückfrage vorbereiten</text>
+<text x="302" y="355" font-size="12" fill="var(--leise)">Ausgang: offene Punkte · du gibst frei</text>
+<rect x="12" y="382" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="22" y="403" font-size="14" font-weight="700" fill="var(--text)">6. Antwort des Kunden</text>
+<text x="22" y="421" font-size="12" fill="var(--leise)">hängt sich an · zurück zu 4</text>
+<rect x="12" y="448" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="22" y="469" font-size="14" font-weight="700" fill="var(--text)">7. Freigabe der Konstruktion</text>
+<text x="22" y="487" font-size="12" fill="var(--leise)">nur bei Skizzen: 3D-Link, Maßprüfung</text>
+<rect x="292" y="514" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="302" y="535" font-size="14" font-weight="700" fill="var(--text)">8. Kalkulation</text>
+<text x="302" y="553" font-size="12" fill="var(--leise)">Laser, Kanten, Material, Staffel</text>
 <rect x="292" y="580" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
-<text x="302" y="601" font-size="14" font-weight="700" fill="var(--text)">9. Auftrag</text>
-<text x="302" y="619" font-size="12" fill="var(--leise)">Stand: Auftrag (auch ohne Angebot)</text>
+<text x="302" y="601" font-size="14" font-weight="700" fill="var(--text)">9. Angebot erstellen</text>
+<text x="302" y="619" font-size="12" fill="var(--leise)">PDF an Kunden · nachfassen nach 7 Tagen</text>
 <rect x="572" y="580" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="582" y="601" font-size="14" font-weight="700" fill="var(--text)">→ Auftrag übernehmen</text>
-<text x="582" y="619" font-size="12" fill="var(--leise)">Bestellnummer, Liefertermin</text>
-<line x1="548" y1="605.0" x2="571" y2="605.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze)"/>
-<rect x="292" y="646" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
-<text x="302" y="667" font-size="14" font-weight="700" fill="var(--text)">10. Material</text>
-<text x="302" y="685" font-size="12" fill="var(--leise)">Lager reservieren oder bestellen</text>
-<rect x="852" y="712" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
-<text x="862" y="733" font-size="14" font-weight="700" fill="var(--text)">11. Fertigung</text>
-<text x="862" y="751" font-size="12" fill="var(--leise)">Laser, Kanten, Schweißen · Zeiten</text>
-<rect x="292" y="778" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="302" y="799" font-size="14" font-weight="700" fill="var(--text)">12. Lieferschein erstellen</text>
-<text x="302" y="817" font-size="12" fill="var(--leise)">Stand: geliefert</text>
-<rect x="572" y="778" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="582" y="799" font-size="14" font-weight="700" fill="var(--text)">→ Lieferschein übernehmen</text>
-<text x="582" y="817" font-size="12" fill="var(--leise)">Mengen, Lieferdatum</text>
-<line x1="548" y1="803.0" x2="571" y2="803.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze)"/>
-<rect x="292" y="844" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="302" y="865" font-size="14" font-weight="700" fill="var(--text)">13. Rechnung erstellen</text>
-<text x="302" y="883" font-size="12" fill="var(--leise)">Stand: berechnet → bezahlt</text>
-<rect x="572" y="844" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="582" y="865" font-size="14" font-weight="700" fill="var(--text)">→ Rechnung übernehmen</text>
-<text x="582" y="883" font-size="12" fill="var(--leise)">Buchhaltung, Zahlung</text>
-<line x1="548" y1="869.0" x2="571" y2="869.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze)"/>
-<path d="M268,77.0 H420.0 V117" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<line x1="420.0" y1="168" x2="420.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<line x1="420.0" y1="234" x2="420.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M292,275.0 H140.0 V315" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M268,341.0 H420.0 V381" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<line x1="420.0" y1="432" x2="420.0" y2="447" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M292,473.0 H140.0 V513" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M268,539.0 H420.0 V579" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<line x1="420.0" y1="630" x2="420.0" y2="645" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M548,671.0 H980.0 V711" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<path d="M852,737.0 H420.0 V777" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-<line x1="420.0" y1="828" x2="420.0" y2="843" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze)"/>
-</svg></div>
-<div class="legende"><span class="k">Kunde</span><span class="s">Konstrukteur (automatisch oder mit dir)</span><span class="h">Hyreka (bekommt alle Belege und Daten)</span><span class="w">Werkstatt</span></div>
+<text x="582" y="601" font-size="14" font-weight="700" fill="var(--text)">→ Angebot übernehmen</text>
+<text x="582" y="619" font-size="12" fill="var(--leise)">Kunde, Artikel, Stückliste, Preise</text>
+<line x1="548" y1="605.0" x2="571" y2="605.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
+<rect x="12" y="646" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
+<text x="22" y="667" font-size="14" font-weight="700" fill="var(--text)">10. Bestellung</text>
+<text x="22" y="685" font-size="12" fill="var(--leise)">Mail oder Bestellnummer</text>
+<rect x="292" y="712" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="302" y="733" font-size="14" font-weight="700" fill="var(--text)">11. Auftrag</text>
+<text x="302" y="751" font-size="12" fill="var(--leise)">Stand: Auftrag (auch ohne Angebot)</text>
+<rect x="572" y="712" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="582" y="733" font-size="14" font-weight="700" fill="var(--text)">→ Auftrag übernehmen</text>
+<text x="582" y="751" font-size="12" fill="var(--leise)">Bestellnummer, Liefertermin</text>
+<line x1="548" y1="737.0" x2="571" y2="737.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
+<rect x="292" y="778" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="302" y="799" font-size="14" font-weight="700" fill="var(--text)">12. Material</text>
+<text x="302" y="817" font-size="12" fill="var(--leise)">Lager reservieren oder bestellen</text>
+<rect x="852" y="844" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="862" y="865" font-size="14" font-weight="700" fill="var(--text)">13. Fertigung</text>
+<text x="862" y="883" font-size="12" fill="var(--leise)">Laser, Kanten, Schweißen · Zeiten</text>
+<rect x="292" y="910" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="302" y="931" font-size="14" font-weight="700" fill="var(--text)">14. Lieferschein erstellen</text>
+<text x="302" y="949" font-size="12" fill="var(--leise)">Stand: geliefert</text>
+<rect x="572" y="910" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="582" y="931" font-size="14" font-weight="700" fill="var(--text)">→ Lieferschein übernehmen</text>
+<text x="582" y="949" font-size="12" fill="var(--leise)">Mengen, Lieferdatum</text>
+<line x1="548" y1="935.0" x2="571" y2="935.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
+<rect x="292" y="976" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="302" y="997" font-size="14" font-weight="700" fill="var(--text)">15. Rechnung erstellen</text>
+<text x="302" y="1015" font-size="12" fill="var(--leise)">Stand: berechnet → bezahlt</text>
+<rect x="572" y="976" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<text x="582" y="997" font-size="14" font-weight="700" fill="var(--text)">→ Rechnung übernehmen</text>
+<text x="582" y="1015" font-size="12" fill="var(--leise)">Buchhaltung, Zahlung</text>
+<line x1="548" y1="1001.0" x2="571" y2="1001.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
+<path d="M268,77.0 H420.0 V117" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="168" x2="420.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="234" x2="420.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="300" x2="420.0" y2="315" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M292,341.0 H140.0 V381" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="140.0" y1="432" x2="140.0" y2="447" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M268,473.0 H420.0 V513" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="564" x2="420.0" y2="579" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M292,605.0 H140.0 V645" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M268,671.0 H420.0 V711" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="762" x2="420.0" y2="777" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M548,803.0 H980.0 V843" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M852,869.0 H420.0 V909" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<line x1="420.0" y1="960" x2="420.0" y2="975" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M12,407.0 H5 V275.0 H291" fill="none" stroke="var(--pfeil)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#spitze-ablauf)"/>
+</svg></div><div class="legende"><span class="b-kunde">Kunde</span><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-hy">Hyreka (bekommt alle Belege und Daten)</span><span class="b-werk">Werkstatt und Lager</span><span class="l-bedarf">gestrichelt: nur bei Bedarf</span><span class="l-aufbau">gepunktet: noch im Aufbau</span></div>
 <h3>Was dabei automatisch passiert</h3>
 <ul>
-  <li>Jede Mail wird beim Abruf eingeordnet: Anfrage, Nachtrag, Bestellung, Rechnung, Werbung … Firma und Adresse werden zugeordnet, neue Adressdaten aus der Signatur übernommen (Wellenlinie = automatisch, bitte prüfen).</li>
-  <li>Aus einer neuen Anfrage wird ein Projekt mit der nächsten Nummer wie in Hyreka. Weitere Mails desselben Vorgangs hängen sich an.</li>
+  <li>Jede Mail wird beim Abruf eingeordnet (Anfrage, Nachtrag, Bestellung, Beleg, Werbung …, siehe <a href="#mailarten">Was mit jeder Mailart passiert</a>). Firma und Adresse werden zugeordnet, neue Adressdaten aus der Signatur übernommen (Wellenlinie = automatisch, bitte prüfen).</li>
+  <li>Aus einer neuen Anfrage wird ein Projekt. Die Nummer ist die nächste Auftragsnummer aus Hyreka (Jahr + laufende Nummer). Der Konstrukteur liest dafür Hyreka und deine Nummern aus den Mails und vergibt nie eine Nummer, die Hyreka schon hat. Weitere Mails desselben Vorgangs hängen sich an.</li>
   <li>Der Stand des Projekts folgt Hyreka und den Mails: Angebot, Bestellung, Lieferschein, Rechnung. Was du von Hand setzt, bleibt stehen.</li>
-  <li>Kundenzeichnungen (DXF, STEP) werden beim Eingang vorgeprüft. Bei Fehlern entsteht ein Mail-Entwurf an den Kunden – du entscheidest, ob er rausgeht.</li>
+  <li>Kundenzeichnungen (DXF, STEP) werden gleich beim Eingang vorgeprüft. Kleinigkeiten behebt der Konstrukteur selbst in einer Kopie (z. B. Text auf der Schnittebene), das Original bleibt unverändert.</li>
+</ul>
+<h3>Rückfrage an den Kunden</h3>
+<p>Fehlt etwas, das der Konstrukteur nirgends findet (z. B. die Blechdicke), oder hat die Zeichnung einen Fehler, den nur der Kunde beheben kann, bereitet er eine Rückfrage vor. Pro Projekt gibt es eine Mail mit allen offenen Punkten, jeder ist als „obligatorisch“ oder „optional“ markiert. Die Mail nennt Ursache, Stelle und was geändert werden soll, aber keine Preise und keine internen Hinweise.</p>
+<ul>
+  <li>Die Rückfrage liegt unter <i>Eingang › Freigaben</i> und steht auch im Projekt. Du kannst sie ändern, freigeben oder verwerfen. Von selbst geht nichts hinaus.</li>
+  <li>Freigeben legt sie als Entwurf in dein Postfach, abschicken tust du sie dort.</li>
+  <li>Die Antwort des Kunden hängt sich an das Projekt. Die neuen Daten werden wieder geprüft (Schritt 4), erst danach geht es mit Freigabe und Kalkulation weiter.</li>
+</ul>
+
+<h3 id="mailarten">Was mit jeder Mailart passiert</h3>
+<p>Nach jedem Abruf ordnet der Konstrukteur alle Mails neu ein. Jede Mail bekommt genau eine Art, es gibt dafür keinen Knopf, den man vergessen kann. Mails desselben Absenders mit gemeinsamer Nummer, gleichem Betreff oder als Antwort gehören zu einem Vorgang, zum Beispiel Anfrage, Nachträge und Bestellung.</p>
+<div class="ablauf" role="img" aria-label="Verteiler: welche Mailart der Konstrukteur erkennt und was er mit jeder macht"><svg viewBox="0 0 1120 648" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:840px;max-width:1232px">
+<defs><marker id="spitze-mailarten" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Kunde</text>
+<line x1="280" y1="0" x2="280" y2="648" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Lieferant</text>
+<line x1="560" y1="0" x2="560" y2="648" stroke="var(--linie)" stroke-width="1"/>
+<text x="700.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Andere</text>
+<line x1="840" y1="0" x2="840" y2="648" stroke="var(--linie)" stroke-width="1"/>
+<text x="980.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="0" y1="44" x2="1120" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">Neue Anfrage</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">Formular oder Mail, oft mit Zeichnung</text>
+<rect x="852" y="52" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="73" font-size="14" font-weight="700" fill="var(--text)">→ Projekt anlegen</text>
+<text x="862" y="91" font-size="12" fill="var(--leise)">Nummer aus Hyreka · Zeichnung prüfen</text>
+<line x1="268" y1="77.0" x2="851" y2="77.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="12" y="118" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
+<text x="22" y="139" font-size="14" font-weight="700" fill="var(--text)">Nachtrag</text>
+<text x="22" y="157" font-size="12" fill="var(--leise)">Antwort, neue Zeichnung, Änderung</text>
+<rect x="852" y="118" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="139" font-size="14" font-weight="700" fill="var(--text)">→ an den Vorgang hängen</text>
+<text x="862" y="157" font-size="12" fill="var(--leise)">gleiche Nummer, Betreff oder Antwort</text>
+<line x1="268" y1="143.0" x2="851" y2="143.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="12" y="184" width="256" height="50" rx="8" fill="var(--kunde)" stroke="var(--kunde-rand)" stroke-width="2"/>
+<text x="22" y="205" font-size="14" font-weight="700" fill="var(--text)">Bestellung</text>
+<text x="22" y="223" font-size="12" fill="var(--leise)">Bestellnummer oder Auftrag per Mail</text>
+<rect x="852" y="184" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="205" font-size="14" font-weight="700" fill="var(--text)">→ Stand: Auftrag</text>
+<text x="862" y="223" font-size="12" fill="var(--leise)">auch ohne Angebot</text>
+<line x1="268" y1="209.0" x2="851" y2="209.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="292" y="250" width="256" height="50" rx="8" fill="var(--lief)" stroke="var(--lief-rand)" stroke-width="2"/>
+<text x="302" y="271" font-size="14" font-weight="700" fill="var(--text)">Angebot auf Anfrage</text>
+<text x="302" y="289" font-size="12" fill="var(--leise)">mit der Kennung MA-…</text>
+<rect x="852" y="250" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="271" font-size="14" font-weight="700" fill="var(--text)">→ zur Materialanfrage</text>
+<text x="862" y="289" font-size="12" fill="var(--leise)">PDF lesen · du prüfst die Positionen</text>
+<line x1="548" y1="275.0" x2="851" y2="275.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="292" y="316" width="256" height="50" rx="8" fill="var(--lief)" stroke="var(--lief-rand)" stroke-width="2"/>
+<text x="302" y="337" font-size="14" font-weight="700" fill="var(--text)">Rechnung, Lieferschein, AB</text>
+<text x="302" y="355" font-size="12" fill="var(--leise)">PDF-Anhang vom Lieferanten</text>
+<rect x="852" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="337" font-size="14" font-weight="700" fill="var(--text)">→ Beleg einordnen</text>
+<text x="862" y="355" font-size="12" fill="var(--leise)">Preise, Wareneingang, Rechnung</text>
+<line x1="548" y1="341.0" x2="851" y2="341.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="572" y="382" width="256" height="50" rx="8" fill="var(--andere)" stroke="var(--andere-rand)" stroke-width="2"/>
+<text x="582" y="403" font-size="14" font-weight="700" fill="var(--text)">Deine eigene Mail</text>
+<text x="582" y="421" font-size="12" fill="var(--leise)">z. B. Angebot an den Kunden</text>
+<rect x="852" y="382" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="403" font-size="14" font-weight="700" fill="var(--text)">→ Stand nachziehen</text>
+<text x="862" y="421" font-size="12" fill="var(--leise)">Angebot verschickt · nachfassen</text>
+<line x1="828" y1="407.0" x2="851" y2="407.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="572" y="448" width="256" height="50" rx="8" fill="var(--andere)" stroke="var(--andere-rand)" stroke-width="2"/>
+<text x="582" y="469" font-size="14" font-weight="700" fill="var(--text)">Behörde / Personal</text>
+<text x="582" y="487" font-size="12" fill="var(--leise)">Finanzamt, Krankenkasse, BG …</text>
+<rect x="852" y="448" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="469" font-size="14" font-weight="700" fill="var(--text)">→ Pflichten prüfen</text>
+<text x="862" y="487" font-size="12" fill="var(--leise)">Nachweis erkannt – bitte prüfen</text>
+<line x1="828" y1="473.0" x2="851" y2="473.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="572" y="514" width="256" height="50" rx="8" fill="var(--andere)" stroke="var(--andere-rand)" stroke-width="2"/>
+<text x="582" y="535" font-size="14" font-weight="700" fill="var(--text)">Werbung</text>
+<text x="582" y="553" font-size="12" fill="var(--leise)">Newsletter, Angebote Dritter</text>
+<rect x="852" y="514" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="535" font-size="14" font-weight="700" fill="var(--text)">→ beiseitelegen</text>
+<text x="862" y="553" font-size="12" fill="var(--leise)">keine Adresse, Reiter Sonstiges</text>
+<line x1="828" y1="539.0" x2="851" y2="539.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+<rect x="572" y="580" width="256" height="50" rx="8" fill="var(--andere)" stroke="var(--andere-rand)" stroke-width="2"/>
+<text x="582" y="601" font-size="14" font-weight="700" fill="var(--text)">Zu prüfen</text>
+<text x="582" y="619" font-size="12" fill="var(--leise)">keine Regel passt</text>
+<rect x="852" y="580" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="862" y="601" font-size="14" font-weight="700" fill="var(--text)">→ Zu klären</text>
+<text x="862" y="619" font-size="12" fill="var(--leise)">du entscheidest, wohin sie gehört</text>
+<line x1="828" y1="605.0" x2="851" y2="605.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
+</svg></div><div class="legende"><span class="b-kunde">Kunde</span><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-lief">Lieferant</span><span class="b-andere">Andere (du selbst, Behörden, Werbung)</span></div>
+<ul>
+  <li><b>Kunde oder Lieferant</b> ergibt sich aus den Mails: Wer anfragt oder bestellt, ist Kunde. Wer Rechnungen oder Lieferscheine schickt, ist Lieferant. Fehlt die Adresse, legt der Konstrukteur sie an (unbestätigt). Behörden, Werbung und deine eigenen Mails bekommen keine Adresse.</li>
+  <li><b>Hängt eine Mail an einem Projekt</b>, kommen Nachträge und Bestellungen desselben Vorgangs dazu.</li>
+  <li><b>Im Eingang</b> stehen die Arten auf eigenen Reitern: Anfragen, Bestellungen, Vorgänge (Nachträge), Belege und Sonstiges. Unter <i>Zu klären</i> landet, was du dir ansehen solltest, auch Scans und Rechnungen zum Einordnen.</li>
+  <li><b>Lieferantenmails</b> (Angebote, Auftragsbestätigungen) werden nie als Kundenanfrage gezählt. Preise aus Auftragsbestätigung und Rechnung gelten in der Kalkulation als bezahlter Preis.</li>
+</ul>
+</section>
+
+<section aria-labelledby="werkstatt"><h2 id="werkstatt">Abläufe in der Werkstatt</h2>
+<p>Was nach dem Auftrag passiert, genauer: Werkstattauftrag und Zeiten, Material vom Bedarf bis zur Rechnung, das Lager im Alltag, die Inventur und die Arbeitssicherheit. Hier steht nur, was im Programm schon geht. Zeiten und Lager findest du unter <i>Betrieb</i>, Plan und Gefährdungsbeurteilungen unter <i>Mehr › Maschinen &amp; Einrichtung</i>.</p>
+
+<h3 id="werkstattauftrag">Werkstattauftrag und Zeiterfassung</h3>
+<div class="ablauf" role="img" aria-label="Ablauf Werkstattauftrag: planen, drucken, START und FERTIG scannen, Zeiten in die Nachkalkulation"><svg viewBox="0 0 560 714" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:420px;max-width:616px">
+<defs><marker id="spitze-werkstattauftrag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="280" y1="0" x2="280" y2="714" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Werkstatt</text>
+<line x1="0" y1="44" x2="560" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">1. Arbeitsschritte planen</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">Vorgabezeit aus der Kalkulation</text>
+<rect x="12" y="118" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="139" font-size="14" font-weight="700" fill="var(--text)">2. Reihenfolge und Woche</text>
+<text x="22" y="157" font-size="12" fill="var(--leise)">Was ist dran · Auslastung je KW</text>
+<rect x="12" y="184" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Werkstattauftrag drucken</text>
+<text x="22" y="223" font-size="12" fill="var(--leise)">ohne Preise · Material, Teile, PSA</text>
+<rect x="12" y="250" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="22" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Sprache wählen</text>
+<text x="22" y="289" font-size="12" fill="var(--leise)">für Mitarbeiter in ihrer Sprache</text>
+<rect x="292" y="316" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="302" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Material holen</text>
+<text x="302" y="355" font-size="12" fill="var(--leise)">Lagerplatz steht auf dem Auftrag</text>
+<rect x="292" y="382" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="302" y="403" font-size="14" font-weight="700" fill="var(--text)">6. START scannen</text>
+<text x="302" y="421" font-size="12" fill="var(--leise)">QR je Arbeitsgang · deine Zeit läuft</text>
+<rect x="292" y="448" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="302" y="469" font-size="14" font-weight="700" fill="var(--text)">7. Arbeitsgang ausführen</text>
+<text x="302" y="487" font-size="12" fill="var(--leise)">Laser, Kanten, Schweißen …</text>
+<rect x="292" y="514" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="302" y="535" font-size="14" font-weight="700" fill="var(--text)">8. FERTIG scannen</text>
+<text x="302" y="553" font-size="12" fill="var(--leise)">Zeit stoppt · nächster Gang: zu 6</text>
+<rect x="12" y="580" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="601" font-size="14" font-weight="700" fill="var(--text)">9. Was läuft gerade</text>
+<text x="22" y="619" font-size="12" fill="var(--leise)">wer woran · Vorgabe überschritten</text>
+<rect x="12" y="646" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="667" font-size="14" font-weight="700" fill="var(--text)">10. Nachkalkulation</text>
+<text x="22" y="685" font-size="12" fill="var(--leise)">Soll- und Ist-Stunden je Auftrag</text>
+<line x1="140.0" y1="102" x2="140.0" y2="117" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="140.0" y1="168" x2="140.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="140.0" y1="234" x2="140.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<path d="M268,275.0 H420.0 V315" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="420.0" y1="366" x2="420.0" y2="381" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="420.0" y1="432" x2="420.0" y2="447" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="420.0" y1="498" x2="420.0" y2="513" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<path d="M292,539.0 H140.0 V579" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<line x1="140.0" y1="630" x2="140.0" y2="645" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-werkstattauftrag)"/>
+<path d="M548,539.0 H555 V407.0 H549" fill="none" stroke="var(--pfeil)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#spitze-werkstattauftrag)"/>
+</svg></div><div class="legende"><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-werk">Werkstatt und Lager</span><span class="l-bedarf">gestrichelt: nur bei Bedarf</span></div>
+<ul>
+  <li><b>Was draufsteht:</b> Auftrag, Liefertermin, Material mit Lagerplatz, Teile mit Bild, Arbeitsgänge in der richtigen Reihenfolge mit Vorgabezeit und Beschreibung, dazu die Schutzausrüstung aus der Gefährdungsbeurteilung. Preise, Kunde und Bestellnummer erfahren deine Leute daraus nicht.</li>
+  <li><b>Sprache:</b> Die festen Beschriftungen gibt es fertig übersetzt. Freie Texte wie Arbeitsgang oder Teilename übersetzt Claude auf Wunsch, das kostet ein paar Cent und wird gespeichert.</li>
+  <li><b>Zeiten:</b> Jeder Arbeitsgang hat zwei QR-Codes, START und FERTIG. Wer scannt, gibt einmal seinen Namen an. Arbeiten zwei Leute am selben Gang, zählen beide Zeiten. FERTIG trägt die Summe als Ist-Stunden ein. Wird nur FERTIG gescannt, ist der Gang erledigt, aber ohne Zeit.</li>
+  <li><b>Auftrag geändert:</b> Die Codes der übrigen Arbeitsgänge bleiben gültig. Scannt jemand einen gelöschten Gang, meldet der Konstrukteur „Auftrag geändert – bitte neu drucken“.</li>
+  <li><b>Was läuft gerade</b> (<i>Betrieb › Werkstatt</i>): wer woran arbeitet, was heute fertig wurde, Aufträge in Fertigung mit Soll- und Ist-Stunden. Eine Warnung erscheint, wenn die Vorgabezeit überschritten ist oder eine Zeit länger als 12 Stunden läuft, dann wurde wohl FERTIG vergessen.</li>
+  <li><b>Wochenplan und Monatsbericht</b> (<i>Mehr › Maschinen &amp; Einrichtung › Plan und Bericht</i>): offene Stunden nach Liefertermin auf die Kalenderwochen verteilt, gegen deine Kapazität (Stunden je Tag, Arbeitstage, Feiertage, Betriebsurlaub).</li>
+</ul>
+
+<h3 id="material">Material: vom Bedarf bis zur Rechnung</h3>
+<div class="ablauf" role="img" aria-label="Ablauf Material: Bedarf, Lager prüfen, anfragen, vergleichen, bestellen, Wareneingang, einlagern, Rechnung prüfen"><svg viewBox="0 0 840 846" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:630px;max-width:924px">
+<defs><marker id="spitze-material" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="280" y1="0" x2="280" y2="846" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Lieferant</text>
+<line x1="560" y1="0" x2="560" y2="846" stroke="var(--linie)" stroke-width="1"/>
+<text x="700.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Lager</text>
+<line x1="0" y1="44" x2="840" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">1. Bedarf aus Kalkulation</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">Werkstoff, Dicke, kg · Zuschnitte</text>
+<rect x="12" y="118" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="139" font-size="14" font-weight="700" fill="var(--text)">2. Erst ins Lager schauen</text>
+<text x="22" y="157" font-size="12" fill="var(--leise)">passt es auf Tafel, Rest, Stange?</text>
+<rect x="572" y="118" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="582" y="139" font-size="14" font-weight="700" fill="var(--text)">→ Reservieren</text>
+<text x="582" y="157" font-size="12" fill="var(--leise)">Stücke fürs Projekt zurücklegen</text>
+<line x1="268" y1="143.0" x2="571" y2="143.0" stroke="var(--werk-rand)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<rect x="12" y="184" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Nur Fehlendes anfragen</text>
+<text x="22" y="223" font-size="12" fill="var(--leise)">Sammelanfrage · bei Eile einzeln</text>
+<rect x="292" y="250" width="256" height="50" rx="8" fill="var(--lief)" stroke="var(--lief-rand)" stroke-width="2"/>
+<text x="302" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Angebote</text>
+<text x="302" y="289" font-size="12" fill="var(--leise)">Antwort mit Kennung MA-… · PDF</text>
+<rect x="12" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Angebotsvergleich</text>
+<text x="22" y="355" font-size="12" fill="var(--leise)">Preis, Fracht, Skonto, Lieferzeit</text>
+<rect x="12" y="382" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="403" font-size="14" font-weight="700" fill="var(--text)">6. Bestellung</text>
+<text x="22" y="421" font-size="12" fill="var(--leise)">Nummer BE-… · Entwurf, du sendest</text>
+<rect x="292" y="448" width="256" height="50" rx="8" fill="var(--lief)" stroke="var(--lief-rand)" stroke-width="2"/>
+<text x="302" y="469" font-size="14" font-weight="700" fill="var(--text)">7. Lieferung</text>
+<text x="302" y="487" font-size="12" fill="var(--leise)">Lieferschein gescannt oder per Mail</text>
+<rect x="572" y="514" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="582" y="535" font-size="14" font-weight="700" fill="var(--text)">8. Wareneingang</text>
+<text x="582" y="553" font-size="12" fill="var(--leise)">Abgleich mit der Bestellung</text>
+<rect x="12" y="514" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="22" y="535" font-size="14" font-weight="700" fill="var(--text)">← Prüfzeugnis zuordnen</text>
+<text x="22" y="553" font-size="12" fill="var(--leise)">2.2 / 3.1 an Projekt oder Lager</text>
+<line x1="572" y1="539.0" x2="269" y2="539.0" stroke="var(--kon-rand)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#spitze-material)"/>
+<rect x="572" y="580" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="582" y="601" font-size="14" font-weight="700" fill="var(--text)">9. Einlagern</text>
+<text x="582" y="619" font-size="12" fill="var(--leise)">mit Bestellung direkt · sonst bestätigen</text>
+<rect x="292" y="646" width="256" height="50" rx="8" fill="var(--lief)" stroke="var(--lief-rand)" stroke-width="2"/>
+<text x="302" y="667" font-size="14" font-weight="700" fill="var(--text)">10. Eingangsrechnung</text>
+<text x="302" y="685" font-size="12" fill="var(--leise)">ZUGFeRD, XRechnung oder PDF</text>
+<rect x="12" y="712" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="733" font-size="14" font-weight="700" fill="var(--text)">11. Rechnung prüfen</text>
+<text x="22" y="751" font-size="12" fill="var(--leise)">freigeben nur, was geliefert ist</text>
+<rect x="12" y="778" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="799" font-size="14" font-weight="700" fill="var(--text)">12. Nachkalkulation</text>
+<text x="22" y="817" font-size="12" fill="var(--leise)">Ist-Material am Projekt</text>
+<line x1="140.0" y1="102" x2="140.0" y2="117" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<line x1="140.0" y1="168" x2="140.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M268,209.0 H420.0 V249" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M292,275.0 H140.0 V315" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<line x1="140.0" y1="366" x2="140.0" y2="381" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M268,407.0 H420.0 V447" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M548,473.0 H700.0 V513" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<line x1="700.0" y1="564" x2="700.0" y2="579" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M572,605.0 H420.0 V645" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<path d="M292,671.0 H140.0 V711" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+<line x1="140.0" y1="762" x2="140.0" y2="777" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-material)"/>
+</svg></div><div class="legende"><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-werk">Werkstatt und Lager</span><span class="b-lief">Lieferant</span><span class="l-bedarf">gestrichelt: nur bei Bedarf</span></div>
+<ul>
+  <li><b>Erst das Lager:</b> Der Bedarf aus der Kalkulation wird neben den Bestand gelegt (gleicher Werkstoff, gleiche Dicke). Für jedes Reststück rechnet der Konstrukteur aus, wie viele Zuschnitte darauf passen. Bei Stangen nimmt er zuerst die kürzesten passenden Reste. Angefragt wird nur, was dann noch fehlt.</li>
+  <li><b>Sammelanfrage:</b> Der Bedarf aller Projekte, alles unter Mindestbestand und fällige Vorlagen kommen in einen Korb. Am Anfragetag (einmal pro Woche) füllt der Konstrukteur den Korb von selbst und bereitet daraus die Anfrage an die Lieferanten vor, abschicken tust du sie. So zahlst du eine Fracht statt vieler. Fällt der Tag auf einen Feiertag oder in den Betriebsurlaub, wird früher angefragt. Braucht ein Projekt das Material vorher, heißt es „sofort einzeln anfragen“.</li>
+  <li><b>Angebote und Vergleich:</b> Antworten mit der Kennung der Anfrage (MA-…) ordnet der Konstrukteur der Anfrage zu und liest das PDF-Angebot. Du prüfst die erkannten Positionen. Der Vergleich zeigt Preis je Position, Fracht, Zuschläge, Skonto und Endpreis. Ist es eilig, gewinnt der günstigste Lieferant mit höchstens 3 Tagen Lieferzeit, liefert keiner so schnell, der schnellste. Sonst wird der Auftrag aufgeteilt, wenn das billiger ist.</li>
+  <li><b>Bestellung:</b> je Lieferant eine Bestellung mit Nummer BE-…, die Preise kommen aus dem Vergleich. Die Summe der offenen Bestellungen siehst du als Obligo.</li>
+  <li><b>Mails:</b> Anfragen und Bestellungen schreibt der Konstrukteur als Entwurf, senden tust du sie.</li>
+  <li><b>Wareneingang:</b> Den Lieferschein scannst du (Scan-Ordner) oder er kommt als Mail-Anhang. Der Konstrukteur gleicht ihn mit der Bestellung ab: vollständig, Unterlieferung (der Rest bleibt offen), Überlieferung oder nicht bestellt. Ein Lieferschein wird nie zweimal gebucht.</li>
+  <li><b>Einlagern:</b> Gehört der Lieferschein zu einer Bestellung aus dem Konstrukteur, kommen Tafeln und Stangen mit Maß gleich ins Lager. War die Bestellung für ein Projekt, werden die Stücke dafür reserviert. Alle anderen Lieferscheine liefern Vorschläge: Ein Mitarbeiter bestätigt Werkstoff, Form und Menge, erst dann wird eingebucht. Was schon über die Bestellung gebucht ist, wird nicht noch einmal vorgeschlagen. Normteile und Verbrauchsmaterial kommen nicht ins Lager. Jeder Zugang steht im Lagerjournal.</li>
+  <li><b>Prüfzeugnisse</b> (2.2 und 3.1 nach DIN EN 10204) hängst du an Projekt oder Lagerposten. So kannst du belegen, welches Material in welchem Teil steckt.</li>
+  <li><b>Reklamationen</b> an Lieferanten (Material, Lieferung) oder von Kunden erfasst du mit Stand, Kosten und Maßnahme. Offene und die der letzten 12 Monate stehen in der Lieferantenbewertung.</li>
+  <li><b>Eingangsrechnung:</b> ZUGFeRD und XRechnung liest der Konstrukteur ohne Raten aus. Bis du eine Rechnung bestätigst, zählt sie in der Nachkalkulation nur vorläufig. Unsicher gelesene PDFs zählen erst nach deiner Bestätigung. Zur Freigabe vorgeschlagen wird nur, was geliefert ist. Berechnet der Lieferant mehr, steht ein Hinweis an der Rechnung. Die Ist-Kosten gehen in die Nachkalkulation des Projekts.</li>
+</ul>
+
+<h3 id="lager">Lager im Alltag</h3>
+<div class="ablauf" role="img" aria-label="Ablauf Lager im Alltag: Etiketten, scannen, entnehmen, ablängen, Mindestbestand"><svg viewBox="0 0 560 450" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:420px;max-width:616px">
+<defs><marker id="spitze-lager" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Werkstatt</text>
+<line x1="280" y1="0" x2="280" y2="450" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="0" y1="44" x2="560" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">1. Etiketten drucken</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">QR-Code an Regal oder Stange</text>
+<rect x="12" y="118" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="22" y="139" font-size="14" font-weight="700" fill="var(--text)">2. Etikett scannen</text>
+<text x="22" y="157" font-size="12" fill="var(--leise)">Lagerplatz sofort gefunden</text>
+<rect x="12" y="184" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="22" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Entnehmen</text>
+<text x="22" y="223" font-size="12" fill="var(--leise)">Stückzahl · für welches Projekt</text>
+<rect x="12" y="250" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="22" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Stange ablängen</text>
+<text x="22" y="289" font-size="12" fill="var(--leise)">Rest geht als Stangenrest zurück</text>
+<rect x="292" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="302" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Bestand und Reservierung</text>
+<text x="302" y="355" font-size="12" fill="var(--leise)">fremde Reservierung bleibt liegen</text>
+<rect x="292" y="382" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="302" y="403" font-size="14" font-weight="700" fill="var(--text)">6. Mindestbestand prüfen</text>
+<text x="302" y="421" font-size="12" fill="var(--leise)">unterschritten → Sammelanfrage</text>
+<line x1="140.0" y1="102" x2="140.0" y2="117" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-lager)"/>
+<line x1="140.0" y1="168" x2="140.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-lager)"/>
+<line x1="140.0" y1="234" x2="140.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-lager)"/>
+<path d="M268,275.0 H420.0 V315" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-lager)"/>
+<line x1="420.0" y1="366" x2="420.0" y2="381" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-lager)"/>
+</svg></div><div class="legende"><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-werk">Werkstatt und Lager</span><span class="l-bedarf">gestrichelt: nur bei Bedarf</span></div>
+<ul>
+  <li><b>Was im Lager liegt:</b> Tafeln, Reststücke, Stangen und Stangenreste, jeweils mit Werkstoff, Maß, Oberfläche, Stückzahl und Lagerplatz.</li>
+  <li><b>Etiketten</b> mit QR-Code klebst du an Regal oder Stange. Im Suchfeld des Lagers findet ein Scan (z. B. <code>LAGER:12</code>) den Platz sofort.</li>
+  <li><b>Entnehmen</b> geht nie unter null. Was für ein anderes Projekt reserviert ist, bleibt liegen. Bei einer Entnahme für ein Projekt wird dessen Reservierung verbraucht und im Projekt vermerkt.</li>
+  <li><b>Ablängen:</b> Du gibst Länge und Stückzahl an, das Sägeblatt wird mitgerechnet. Der Rest geht als Stangenrest an denselben Platz zurück, zu kurze Reste zählen als Schrott.</li>
+  <li><b>Mindestbestand</b> legst du für Material an, das immer da sein soll (z. B. V2A 3 mm, Quadratrohr 40x40x3). Wird er unterschritten, steht es im Lager und das Material kommt von selbst in die nächste Sammelanfrage.</li>
+  <li><b>Altbestand:</b> Material aus Lieferungen vor dem Start lässt sich einmal aus den alten Lieferscheinen übernehmen.</li>
+</ul>
+
+<h3 id="inventur">Inventur</h3>
+<div class="ablauf" role="img" aria-label="Ablauf Inventur: Liste drucken, zählen, Bestand berichtigen, Lagerwert, Liste für den Steuerberater"><svg viewBox="0 0 560 384" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:420px;max-width:616px">
+<defs><marker id="spitze-inventur" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="280" y1="0" x2="280" y2="384" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Werkstatt</text>
+<line x1="0" y1="44" x2="560" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">1. Inventurliste drucken</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">Regal für Regal · Soll-Stück steht da</text>
+<rect x="292" y="118" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="302" y="139" font-size="14" font-weight="700" fill="var(--text)">2. Zählen</text>
+<text x="302" y="157" font-size="12" fill="var(--leise)">Ist-Stück auf die Liste schreiben</text>
+<rect x="12" y="184" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Bestand berichtigen</text>
+<text x="22" y="223" font-size="12" fill="var(--leise)">Abweichung am Lagerplatz ändern</text>
+<rect x="12" y="250" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Lagerwert</text>
+<text x="22" y="289" font-size="12" fill="var(--leise)">zum jüngsten Einkaufspreis</text>
+<rect x="12" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="337" font-size="14" font-weight="700" fill="var(--text)">5. Liste für Steuerberater</text>
+<text x="22" y="355" font-size="12" fill="var(--leise)">CSV für Excel mit Lagerwert</text>
+<path d="M268,77.0 H420.0 V117" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-inventur)"/>
+<path d="M292,143.0 H140.0 V183" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-inventur)"/>
+<line x1="140.0" y1="234" x2="140.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-inventur)"/>
+<line x1="140.0" y1="300" x2="140.0" y2="315" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-inventur)"/>
+</svg></div><div class="legende"><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-werk">Werkstatt und Lager</span></div>
+<ul>
+  <li><b>Inventurliste</b> (<i>Betrieb › Lager</i>, Knopf „Inventurliste“): zum Drucken, sortiert Regal für Regal, mit Soll-Stückzahl. Die Spalten für Ist und Differenz sind leer, dort trägt der Zähler ein. Geldspalten sieht nur, wer die Kalkulation sehen darf.</li>
+  <li><b>Berichtigen:</b> Abweichungen trägst du danach von Hand am Lagerplatz ein. Die Ist-Spalte der Liste bucht nicht selbst.</li>
+  <li><b>Lagerwert:</b> zum jüngsten Einkaufspreis, aufgeteilt nach Werkstoff. Reservierte Stücke zählen mit, sie liegen ja da. Fehlt bei einem Platz Preis oder Gewicht, ist die Summe zu niedrig, und der Konstrukteur sagt das dazu.</li>
+  <li><b>Für den Steuerberater:</b> dieselbe Liste als CSV für Excel (Knopf „CSV“ daneben), mit Lagerwert.</li>
+</ul>
+
+<h3 id="sicherheit">Arbeitssicherheit</h3>
+<div class="ablauf" role="img" aria-label="Ablauf Arbeitssicherheit: Gefährdungsbeurteilung, Freigabe, Betriebsanweisung, Unterweisung, PSA, Fristen"><svg viewBox="0 0 840 450" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:630px;max-width:924px">
+<defs><marker id="spitze-sicherheit" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
+<text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Konstrukteur</text>
+<line x1="280" y1="0" x2="280" y2="450" stroke="var(--linie)" stroke-width="1"/>
+<text x="420.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Du</text>
+<line x1="560" y1="0" x2="560" y2="450" stroke="var(--linie)" stroke-width="1"/>
+<text x="700.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Werkstatt</text>
+<line x1="0" y1="44" x2="840" y2="44" stroke="var(--linie)" stroke-width="1"/>
+<rect x="12" y="52" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="73" font-size="14" font-weight="700" fill="var(--text)">1. Beurteilung vorbereiten</text>
+<text x="22" y="91" font-size="12" fill="var(--leise)">je Maschine aus dem Katalog</text>
+<rect x="292" y="118" width="256" height="50" rx="8" fill="var(--du)" stroke="var(--du-rand)" stroke-width="2"/>
+<text x="302" y="139" font-size="14" font-weight="700" fill="var(--text)">2. Prüfen und freigeben</text>
+<text x="302" y="157" font-size="12" fill="var(--leise)">Risiko vorher/nachher · gesperrt</text>
+<rect x="292" y="184" width="256" height="50" rx="8" fill="var(--du)" stroke="var(--du-rand)" stroke-width="2"/>
+<text x="302" y="205" font-size="14" font-weight="700" fill="var(--text)">3. Betriebsanweisung</text>
+<text x="302" y="223" font-size="12" fill="var(--leise)">aus deinem Ordner · ändern, drucken</text>
+<rect x="572" y="250" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
+<text x="582" y="271" font-size="14" font-weight="700" fill="var(--text)">4. Unterweisung</text>
+<text x="582" y="289" font-size="12" fill="var(--leise)">wer, wann, von wem · Nachweis</text>
+<rect x="12" y="316" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="337" font-size="14" font-weight="700" fill="var(--text)">5. PSA auf dem Auftrag</text>
+<text x="22" y="355" font-size="12" fill="var(--leise)">aus der Beurteilung der Maschine</text>
+<rect x="12" y="382" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
+<text x="22" y="403" font-size="14" font-weight="700" fill="var(--text)">6. Fristen überwachen</text>
+<text x="22" y="421" font-size="12" fill="var(--leise)">Überprüfung, Unterweisung, Pflichten</text>
+<path d="M268,77.0 H420.0 V117" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-sicherheit)"/>
+<line x1="420.0" y1="168" x2="420.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-sicherheit)"/>
+<path d="M548,209.0 H700.0 V249" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-sicherheit)"/>
+<path d="M572,275.0 H140.0 V315" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-sicherheit)"/>
+<line x1="140.0" y1="366" x2="140.0" y2="381" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-sicherheit)"/>
+</svg></div><div class="legende"><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-werk">Werkstatt und Lager</span><span class="b-du">Du (Chef, fachkundige Person)</span></div>
+<ul>
+  <li><b>Gefährdungsbeurteilung</b> (<i>Mehr › Maschinen &amp; Einrichtung › Gefährdungsbeurteilungen</i>): Für jede Maschine bereitet der Konstrukteur eine Beurteilung aus dem Katalog vor, mit Tätigkeiten, Gefährdungen, Maßnahmen und Risiko vorher und nachher. Du prüfst und gibst frei. Danach ist sie gesperrt, Änderungen gehen nur über eine neue Fassung.</li>
+  <li><b>Betriebsanweisungen</b> kommen aus deinem Ordner in der Nextcloud. Du kannst sie im Konstrukteur öffnen, ändern, drucken und archivieren.</li>
+  <li><b>Unterweisung:</b> Wer, wann, von wem wird als Nachweis gespeichert.</li>
+  <li><b>Fristen:</b> Fällige Überprüfungen, Unterweisungen und andere Pflichten zeigt der Konstrukteur an und erinnert dich daran. Jede Durchführung wird als Nachweis gespeichert und nie überschrieben.</li>
 </ul>
 </section>
 
