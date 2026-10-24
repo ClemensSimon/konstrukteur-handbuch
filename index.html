@@ -106,7 +106,7 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 </section>
 
 <section aria-labelledby="ablauf"><h2 id="ablauf">Ablauf eines Auftrags</h2>
-<p>So läuft ein Auftrag durch das System, von der Anfrage bis zur bezahlten Rechnung. Jede Spalte zeigt, wer oder was den Schritt macht. Der Konstrukteur erstellt Angebot, Lieferschein und Rechnung, Hyreka bekommt alle Angaben dazu. Was nach dem Auftrag in der Werkstatt passiert, steht genauer unter <a href="#werkstatt">Abläufe in der Werkstatt</a>.</p>
+<p>So läuft ein Auftrag durch das System, von der Anfrage bis zur bezahlten Rechnung. Jede Spalte zeigt, wer oder was den Schritt macht. Der Konstrukteur erstellt Angebot, Auftragsbestätigung und Lieferschein, Hyreka bekommt alle Angaben dazu. Die Rechnung schreibst du vorerst weiter in Hyreka. Was nach dem Auftrag in der Werkstatt passiert, steht genauer unter <a href="#werkstatt">Abläufe in der Werkstatt</a>.</p>
 <div class="ablauf" role="img" aria-label="Ablaufdiagramm eines Auftrags von der Anfrage über Rückfrage und Freigabe bis zur Rechnung"><svg viewBox="0 0 1120 1044" xmlns="http://www.w3.org/2000/svg" font-family="system-ui, Segoe UI, sans-serif" style="min-width:840px;max-width:1232px">
 <defs><marker id="spitze-ablauf" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--pfeil)"/></marker></defs>
 <text x="140.0" y="28" text-anchor="middle" font-size="16" font-weight="700" fill="var(--text)">Kunde</text>
@@ -164,20 +164,16 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 <rect x="852" y="844" width="256" height="50" rx="8" fill="var(--werk)" stroke="var(--werk-rand)" stroke-width="2"/>
 <text x="862" y="865" font-size="14" font-weight="700" fill="var(--text)">13. Fertigung</text>
 <text x="862" y="883" font-size="12" fill="var(--leise)">Laser, Kanten, Schweißen · Zeiten</text>
-<rect x="292" y="910" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
+<rect x="292" y="910" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
 <text x="302" y="931" font-size="14" font-weight="700" fill="var(--text)">14. Lieferschein erstellen</text>
-<text x="302" y="949" font-size="12" fill="var(--leise)">Stand: geliefert</text>
+<text x="302" y="949" font-size="12" fill="var(--leise)">PDF aus Angebot und Auftrag</text>
 <rect x="572" y="910" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
 <text x="582" y="931" font-size="14" font-weight="700" fill="var(--text)">→ Lieferschein übernehmen</text>
 <text x="582" y="949" font-size="12" fill="var(--leise)">Mengen, Lieferdatum</text>
 <line x1="548" y1="935.0" x2="571" y2="935.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
-<rect x="292" y="976" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="302" y="997" font-size="14" font-weight="700" fill="var(--text)">15. Rechnung erstellen</text>
-<text x="302" y="1015" font-size="12" fill="var(--leise)">Stand: berechnet → bezahlt</text>
-<rect x="572" y="976" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2" stroke-dasharray="2 4" stroke-linecap="round"/>
-<text x="582" y="997" font-size="14" font-weight="700" fill="var(--text)">→ Rechnung übernehmen</text>
-<text x="582" y="1015" font-size="12" fill="var(--leise)">Buchhaltung, Zahlung</text>
-<line x1="548" y1="1001.0" x2="571" y2="1001.0" stroke="var(--hy-rand)" stroke-width="1.6" stroke-dasharray="2 4" stroke-linecap="round" marker-end="url(#spitze-ablauf)"/>
+<rect x="572" y="976" width="256" height="50" rx="8" fill="var(--hy)" stroke="var(--hy-rand)" stroke-width="2"/>
+<text x="582" y="997" font-size="14" font-weight="700" fill="var(--text)">15. Rechnung in Hyreka</text>
+<text x="582" y="1015" font-size="12" fill="var(--leise)">vorerst dort · berechnet → bezahlt</text>
 <path d="M268,77.0 H420.0 V117" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <line x1="420.0" y1="168" x2="420.0" y2="183" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <line x1="420.0" y1="234" x2="420.0" y2="249" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
@@ -186,12 +182,12 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 <line x1="140.0" y1="432" x2="140.0" y2="447" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <path d="M268,473.0 H420.0 V513" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <line x1="420.0" y1="564" x2="420.0" y2="579" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
-<path d="M292,605.0 H140.0 V645" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M420.0,630 V638.0 H140.0 V645" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <path d="M268,671.0 H420.0 V711" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <line x1="420.0" y1="762" x2="420.0" y2="777" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <path d="M548,803.0 H980.0 V843" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <path d="M852,869.0 H420.0 V909" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
-<line x1="420.0" y1="960" x2="420.0" y2="975" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
+<path d="M420.0,960 V968.0 H700.0 V975" fill="none" stroke="var(--pfeil)" stroke-width="1.6" marker-end="url(#spitze-ablauf)"/>
 <path d="M12,407.0 H5 V275.0 H291" fill="none" stroke="var(--pfeil)" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#spitze-ablauf)"/>
 </svg></div><div class="legende"><span class="b-kunde">Kunde</span><span class="b-kon">Konstrukteur (automatisch oder mit dir)</span><span class="b-hy">Hyreka (bekommt alle Belege und Daten)</span><span class="b-werk">Werkstatt und Lager</span><span class="l-bedarf">gestrichelt: nur bei Bedarf</span><span class="l-aufbau">gepunktet: noch im Aufbau</span></div>
 <h3>Was dabei automatisch passiert</h3>
