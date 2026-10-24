@@ -266,8 +266,8 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
 <text x="582" y="469" font-size="14" font-weight="700" fill="var(--text)">Behörde / Personal</text>
 <text x="582" y="487" font-size="12" fill="var(--leise)">Finanzamt, Krankenkasse, BG …</text>
 <rect x="852" y="448" width="256" height="50" rx="8" fill="var(--kon)" stroke="var(--kon-rand)" stroke-width="2"/>
-<text x="862" y="469" font-size="14" font-weight="700" fill="var(--text)">→ Pflichten prüfen</text>
-<text x="862" y="487" font-size="12" fill="var(--leise)">Nachweis erkannt – bitte prüfen</text>
+<text x="862" y="469" font-size="14" font-weight="700" fill="var(--text)">→ ohne Adresse ablegen</text>
+<text x="862" y="487" font-size="12" fill="var(--leise)">Reiter Sonstiges</text>
 <line x1="828" y1="473.0" x2="851" y2="473.0" stroke="var(--kon-rand)" stroke-width="1.6" marker-end="url(#spitze-mailarten)"/>
 <rect x="572" y="514" width="256" height="50" rx="8" fill="var(--andere)" stroke="var(--andere-rand)" stroke-width="2"/>
 <text x="582" y="535" font-size="14" font-weight="700" fill="var(--text)">Werbung</text>
@@ -288,7 +288,8 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
   <li><b>Kunde oder Lieferant</b> ergibt sich aus den Mails: Wer anfragt oder bestellt, ist Kunde. Wer Rechnungen oder Lieferscheine schickt, ist Lieferant. Fehlt die Adresse, legt der Konstrukteur sie an (unbestätigt). Behörden, Werbung und deine eigenen Mails bekommen keine Adresse.</li>
   <li><b>Hängt eine Mail an einem Projekt</b>, kommen Nachträge und Bestellungen desselben Vorgangs dazu.</li>
   <li><b>Im Eingang</b> stehen die Arten auf eigenen Reitern: Anfragen, Bestellungen, Vorgänge (Nachträge), Belege und Sonstiges. Unter <i>Zu klären</i> landet, was du dir ansehen solltest, auch Scans und Rechnungen zum Einordnen.</li>
-  <li><b>Lieferantenmails</b> (Angebote, Auftragsbestätigungen) werden nie als Kundenanfrage gezählt. Preise aus Auftragsbestätigung und Rechnung gelten in der Kalkulation als bezahlter Preis.</li>
+  <li><b>Lieferantenmails</b> (Angebote, Auftragsbestätigungen) werden nicht als Kundenanfrage gezählt, sobald der Lieferant ein Firmenprofil hat. Preise aus Auftragsbestätigung und Rechnung gelten in der Kalkulation als bezahlter Preis.</li>
+  <li><b>Nachweise für Pflichten</b> (z. B. eine Freistellungsbescheinigung) sucht der Konstrukteur in allen eingehenden Mails, Briefen und Rechnungen, egal welche Art sie haben. Ein Fund steht bei der Pflicht als „automatisch erkannt – bitte prüfen“.</li>
 </ul>
 </section>
 
@@ -421,7 +422,7 @@ ul.zeit time { color: var(--leise); font-size: 14px; display: inline-block; min-
   <li><b>Erst das Lager:</b> Der Bedarf aus der Kalkulation wird neben den Bestand gelegt (gleicher Werkstoff, gleiche Dicke). Für jedes Reststück rechnet der Konstrukteur aus, wie viele Zuschnitte darauf passen. Bei Stangen nimmt er zuerst die kürzesten passenden Reste. Angefragt wird nur, was dann noch fehlt.</li>
   <li><b>Sammelanfrage:</b> Der Bedarf aller Projekte, alles unter Mindestbestand und fällige Vorlagen kommen in einen Korb. Am Anfragetag (einmal pro Woche) füllt der Konstrukteur den Korb von selbst und bereitet daraus die Anfrage an die Lieferanten vor, abschicken tust du sie. So zahlst du eine Fracht statt vieler. Fällt der Tag auf einen Feiertag oder in den Betriebsurlaub, wird früher angefragt. Braucht ein Projekt das Material vorher, heißt es „sofort einzeln anfragen“.</li>
   <li><b>Angebote und Vergleich:</b> Antworten mit der Kennung der Anfrage (MA-…) ordnet der Konstrukteur der Anfrage zu und liest das PDF-Angebot. Du prüfst die erkannten Positionen. Der Vergleich zeigt Preis je Position, Fracht, Zuschläge, Skonto und Endpreis. Ist es eilig, gewinnt der günstigste Lieferant mit höchstens 3 Tagen Lieferzeit, liefert keiner so schnell, der schnellste. Sonst wird der Auftrag aufgeteilt, wenn das billiger ist.</li>
-  <li><b>Bestellung:</b> je Lieferant eine Bestellung mit Nummer BE-…, die Preise kommen aus dem Vergleich. Die Summe der offenen Bestellungen siehst du als Obligo.</li>
+  <li><b>Bestellung:</b> je Lieferant eine Bestellung mit Nummer BE-…, die Preise kommen aus dem Vergleich. Was bestellt, aber noch nicht geliefert ist, siehst du als Obligo (bei Teillieferung nur der Rest).</li>
   <li><b>Mails:</b> Anfragen und Bestellungen schreibt der Konstrukteur als Entwurf, senden tust du sie.</li>
   <li><b>Wareneingang:</b> Den Lieferschein scannst du (Scan-Ordner) oder er kommt als Mail-Anhang. Der Konstrukteur gleicht ihn mit der Bestellung ab: vollständig, Unterlieferung (der Rest bleibt offen), Überlieferung oder nicht bestellt. Ein Lieferschein wird nie zweimal gebucht.</li>
   <li><b>Einlagern:</b> Gehört der Lieferschein zu einer Bestellung aus dem Konstrukteur, kommen Tafeln und Stangen mit Maß gleich ins Lager. War die Bestellung für ein Projekt, werden die Stücke dafür reserviert. Alle anderen Lieferscheine liefern Vorschläge: Ein Mitarbeiter bestätigt Werkstoff, Form und Menge, erst dann wird eingebucht. Was schon über die Bestellung gebucht ist, wird nicht noch einmal vorgeschlagen. Normteile und Verbrauchsmaterial kommen nicht ins Lager. Jeder Zugang steht im Lagerjournal.</li>
